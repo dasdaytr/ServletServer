@@ -1,0 +1,15 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+        <property name="show_sql">true</property>
+
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5400/FILE_DB</property>
+        <property name="hibernate.connection.username">daniel</property>
+        <property name="hibernate.connection.password">1234</property>
+        <property name="hibernate.connection.pool_size">1000</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <mapping class="test.Model.Person"/>
+        <mapping class="test.Model.Files"/>
+    </session-factory>
+</hibernate-configuration>

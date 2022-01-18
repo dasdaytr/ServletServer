@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - ./data/database.env
+    volumes:
+      - ./data/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    ports:
+    - '5400:5432'
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+    - '5050:80'
